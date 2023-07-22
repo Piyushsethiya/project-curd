@@ -16,19 +16,16 @@ class LoginC extends CI_Controller {
     {
 		$username=$_POST['username'];
 		$password=$_POST['password'];
-		// $data['username'] = $this->input->post('username');
-		// $data['password'] = $this->input->post('password');
-		// echo"<pre>";
-		// print_r($data);
-		// die();
-		// $post=$this->input->post();
+		
         $this->load->model('loginM');
         $query = $this->loginM->insert_data($username,$password);
-		//  print_r($query);
-        //  die();
+		// print_r($_POST);
+		// die();
+		 
 		if($query){
 			$this->load->view('piyush');
-			$this->session->set_userdata('register',$query);
+			// $this->session->set_userdata('register',$query);
+
 			// header("Location:http://localhost/project/index.php/loginC/insert");
 		}
 		else{echo "fali";
@@ -69,8 +66,8 @@ public function insert_formdata()
 			alert("Data Successfully Saved");
 			</script>
 			<?php
+			redirect(base_url('/loginC/form/'));
 		}
-		redirect(base_url('/loginC/form/'));
 		
 		
 	}
@@ -84,6 +81,8 @@ public function insert_formdata()
 	}
 	public function delete_formdata($id)
 	{
+		// print_r($id);
+		// die();
 		$this->load->model('loginM');
 		$query = $this->loginM->delete($id);
 		if($query) { ?>
@@ -120,7 +119,7 @@ public function insert_formdata()
 		$gender = $_POST['gender'];
 		$this->load->model('loginM');
 		$this->loginM->update($name,$phone,$address,$email,$password,$birthdate,$gender,$id);
- 		return redirect(base_url('/loginC/display_formdata/'));
+ 		// return redirect(base_url('/loginC/display_formdata/'));
 	}
 // public function insert_formdata()
 // {

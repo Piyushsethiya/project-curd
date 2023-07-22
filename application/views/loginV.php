@@ -126,7 +126,7 @@ span.forgotpsd a {
 </style>
 <body>
     <h1>LOGIN FORM</h1>
-    <form action="http://localhost/project/index.php/loginC/insert" method="post">
+    <form action="<?php echo base_url('loginC/insert') ?>" method="post">
       <!-- Headings for the form -->
       <div class="headingsContainer">
             <h3>Sign in</h3>
@@ -153,7 +153,7 @@ span.forgotpsd a {
                 <label>
                   <input type="checkbox" checked="checked" name="remember"> Remember me
                 </label>
-                <p class="forgotpsd"> <a href="">Forgot Password?</a></p>
+                <p class="forgotpsd"> <a href="#">Forgot Password?</a></p>
             </div>
 
             <!-- Submit button -->

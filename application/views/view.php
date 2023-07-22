@@ -10,7 +10,7 @@ body{
 	font-family:sans-serif; 
 	height:100vh;
 	background-color: #4158D0;
-	background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+	/* background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%); */
 	background: -webkit-linear-gradient(to right, #155799, #159957);  
   background: linear-gradient(to right, #155799, #159957); 
 	
@@ -18,33 +18,34 @@ body{
 table { 
 	width: 60%; 
 	border-collapse: collapse; 
-	margin:50px auto;
+	margin:50px;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	border-radius: 12px;
+	/* position: fixed; */
 	
 	}
 th { 
-    width: 30;
+    width: 10;
 	background: #152147; 
 	color: white; 
 	font-weight: bold; 
 	border-bottom:2px solid#4158D0 ;
 	}
 
-td, th { 
-	padding: 30px 10px; 
-	text-align: left; 
-	font-size: 30px;
-	text-align: center;
-	}
+	td, th { 
+		padding: 30px 10px; 
+		text-align: left; 
+		font-size: 22.5px;
+		text-align: center;
+		}
 td{
 		background-color: #12192c;
 		color:#fff;
 	}
-.notfound{
+/* .notfound{
 	width: 100%;
-}
-@media 
+} */
+/* @media 
 only screen and (max-width: 760px),
 (min-device-width: 768px) and (max-device-width: 1024px)  {
 
@@ -83,7 +84,7 @@ only screen and (max-width: 760px),
 	}
 
 
-}
+} */
 
 </style>
 <body>
@@ -106,9 +107,10 @@ only screen and (max-width: 760px),
             </tr>
         <tbody>
         <?php if(count($record)):?>
-            <?php foreach($record as $record) {?>
+
+            <?php $i=1; foreach($record as $record) {?>
              <tr>
-        <td><?php echo $record->id;?></td>
+        <td><?php echo $i++;?></td>
         <td><?php echo $record->username;?></td>
         <td><?php echo $record->name;?></td>
         <td><?php echo $record->phone;?></td>
@@ -117,12 +119,11 @@ only screen and (max-width: 760px),
         <td><?php echo $record->password;?></td>
         <td><?php echo $record->birthdate;?></td>
         <td><?php echo $record->gender;?></td>
-        <td> <span style="background-color: green;"> <i class="fa-refresh"> <?php echo anchor("loginC/update_formdata/{$record->id}",'update')?></span> 
-		<!-- <span style="background-color: red;"><?php echo anchor("/loginC/delete_formdata/{$record->id}",'delete');?> </span></td> -->
-		<span style="background-color: red;"> <a href="/localhost/project/index.php/loginC/delete_formdata/.[$record->id]">Delete</a> </span></td>
+        <td> <span style="background-color: green;"> <i class="fa-refresh"> <a href="<?php echo base_url("loginC/get_formdata/").$record->id ?>">update</a></span> 
+		<span style="background-color: red;"> <a href="<?php echo base_url("loginC/delete_formdata/").$record->id ?>">Delete</a> </span></td>
 
              </tr>
-<?php } ?>
+<?php }?>
 <?php else:?>
     <tr> 
         <td class="notfound">no record found</td>
