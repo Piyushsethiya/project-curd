@@ -80,6 +80,10 @@ button:hover {
     opacity: 0.6;
     cursor: pointer;
 }
+.submit{
+    background-color: green;
+    width: 40%
+}
 </style>
 <body>
     <h2 style="text-align:center; color:orange; font-size: 45px 20px ;">Personal Details</h2>
@@ -115,13 +119,13 @@ button:hover {
         <label for="date of birth">Date Of Birth: </label>
         <input type="date", name = "birthdate", placeholder = "Enter your Birth Date" , required>  <br><br>
     </div>
-    <div>
+    <!-- <div>
         <p >Select Gender: </p>
-        <!-- <select name="gender">
+        <select name="gender">
             <option value="none" selected>Gender</option>
             <option value="Male" ></option>
             <option value="Female"></option>
-        </select> -->
+        </select>
         <div name ="gender">
 
         <input type="radio" id ="Male" name="gender" value="male" required>  
@@ -133,7 +137,7 @@ button:hover {
         <input type="radio" id ="other" name="gender" value="other" required>  
         <label for="gender">Other</label>
     </div>
-    </div><br><br>
+    </div><br><br> -->
     <div>
         <input class="submit"  type="submit" value="Sign up">
         <button class="register"><a href="<?php echo base_url('loginC/display_formdata');?>">View</a></button>

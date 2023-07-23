@@ -10,25 +10,24 @@ class loginM extends CI_Model{
         // print_r($username);
         // die();
         $data = $this->db->query($query);
-        return $data->result_array();
-        // return $this->db->query($query)->result-array();
-        // if($data){
-        //     return $data->row();
-        // }
-        // else{
-        //     ?>
-        //     <script>
-        //         alert("Username and Password has incorrect");
-        //     </script>
-        //     <?php
-        // }
+        // return $data->result_array();
+        if($data){
+            return $data->result_array();
+        }
+        else{
+            ?>
+            <script>
+                alert("Username and Password has incorrect");
+            </script>
+            <?php
+        }
     }
 
 // -----------------------register page-------------------------
 
 
-    public function insert($username,$name,$phone,$address,$email,$password,$birthdate,$gender){
-        $data = "INSERT INTO register (username,name, phone, address, email, password, birthdate, gender) VALUES ('$username','$name','$phone','$address','$email','$password','$birthdate','$gender')";
+    public function insert($username,$name,$phone,$address,$email,$password,$birthdate){
+        $data = "INSERT INTO register (username,name, phone, address, email, password, birthdate) VALUES ('$username','$name','$phone','$address','$email','$password','$birthdate')";
         // print_r($data);
         // die();
         $this->db->query($data);
@@ -55,9 +54,9 @@ class loginM extends CI_Model{
         // print_r($item->result());
         // die();
     }
-    public function update($name,$phone,$address,$email,$password,$birthdate,$gender,$id){
+    public function update($name,$phone,$address,$email,$password,$birthdate,$id){
 
-        $data = "UPDATE name='$name',phone='$phone',address='$address',email='$email',password='$password',birthdate='$birthdate',gender='$gender' from register WHERE id = '$id'";
+        $data = "UPDATE name='$name',phone='$phone',address='$address',email='$email',password='$password',birthdate='$birthdate' from register WHERE id = '$id'";
         // $query = $this->db->query($data);
         // print_r($query);
         //  die();

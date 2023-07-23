@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,10 +20,6 @@ label, p{
     font-size: solid 12px;
     margin: auto;
     
-}
-
-label[for="gender"]{
-
 }
 
 form{
@@ -80,7 +77,7 @@ button:hover {
     cursor: pointer;
 }
 .submit{
-    background-color: black;
+    background-color: green;
     color: white;
 
 }
@@ -118,13 +115,13 @@ button:hover {
         <label for="date of birth">Date Of Birth: </label>
         <input type="date", name = "birthdate" value="<?php echo $student->birthdate; ?>"> <br><br>
     </div>
-    <div>
+    <!-- <div>
         <p >Select Gender: </p>
         <select name="gender" value="<?php echo $student->gender; ?>">
             <option value="none" selected>Select</option>
             <option value="0" >Male</option>
             <option value="1">Female</option>
-        </select>
+        </select> -->
         <!-- <div name ="gender" >
 
         <input type="radio"  name="gender" value="<?php echo $student->gender['m']; ?>">  
@@ -136,12 +133,13 @@ button:hover {
         <input type="radio" name="gender" value="<?php echo $student->gender['o']; ?>">  
         <label for="gender">Other</label>
     </div> -->
-    </div><br><br>
-    <div>
-        <input class="submit"  type="submit" value="Update">
-        <button class="register"><a href="<?php echo base_url('loginC/display_formdata');?>">View</a></button>
-    </div>
+    <!-- </div><br><br> -->
+    
+    <input class="submit"  type="submit" value="Update">
+    <button class="register"><a href="<?php echo base_url('loginC/display_formdata');?>">View</a></button>
+    
+    
     <?php }; ?>
-
 </form>
 </body>
+</html>

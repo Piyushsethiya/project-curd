@@ -21,6 +21,7 @@ table {
 	margin:50px;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	border-radius: 12px;
+	size-adjust: 100%;
 	/* position: fixed; */
 	
 	}
@@ -102,7 +103,7 @@ only screen and (max-width: 760px),
                 <th>Email id.</th>
                 <th>Password</th>
                 <th>Date of Birth</th>
-                <th>Gender</th>
+                <!-- <th>Gender</th> -->
                 <th colspan= '2' >Change</th>
             </tr>
         <tbody>
@@ -118,8 +119,8 @@ only screen and (max-width: 760px),
         <td><?php echo $record->email;?></td>
         <td><?php echo $record->password;?></td>
         <td><?php echo $record->birthdate;?></td>
-        <td><?php echo $record->gender;?></td>
-        <td> <span style="background-color: green;"> <i class="fa-refresh"> <a href="<?php echo base_url("loginC/get_formdata/").$record->id ?>">update</a></span> 
+        <!-- <td><?php echo $record->gender;?></td> -->
+        <td> <span style="background-color: green;"> <i class="fa-refresh"> <a href="<?php echo base_url("loginC/get_formdata/").$record->id ?>">update</a></span> <br>
 		<span style="background-color: red;"> <a href="<?php echo base_url("loginC/delete_formdata/").$record->id ?>">Delete</a> </span></td>
 
              </tr>

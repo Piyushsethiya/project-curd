@@ -8,6 +8,8 @@ class LoginC extends CI_Controller {
  
 	public function index()
 	{
+		// $this->load->view('navbar');
+		$this->load->library('session');
 		$this->load->view('loginV');
 
 	}
@@ -23,15 +25,18 @@ class LoginC extends CI_Controller {
 		// die();
 		 
 		if($query){
-			$this->load->view('piyush');
+			$this->load->view('navbar');
 			// $this->session->set_userdata('register',$query);
 
 			// header("Location:http://localhost/project/index.php/loginC/insert");
 		}
-		else{echo "fali";
-			$this->session->set_flashdata('error', 'Invalid username or password');
+		else{
+			$messge = array('message' => 'Invalid Username or Password');
+
+			$this->session->set_flashdata('error',$messge );
 			// redirect (base_url('loginC/insert'));
 			header("Location:http://localhost/project/");
+			// $this->session->flashdata('error');
 
 		}
 	}
@@ -55,10 +60,9 @@ public function insert_formdata()
 		$email = $_POST['email'];
 		$password = $_POST['password'];
 		$birthdate = $_POST['birthdate'];
-		$gender = $_POST['gender'];
 
 		$this->load->model('loginM');
-		$query = $this->loginM->insert($username,$name,$phone,$address,$email,$password,$birthdate,$gender);
+		$query = $this->loginM->insert($username,$name,$phone,$address,$email,$password,$birthdate);
 		// return redirect(base_url('formC/index'));
 		
 		if($query) { ?>
@@ -116,9 +120,8 @@ public function insert_formdata()
 		$email = $_POST['email'];
 		$password = $_POST['password'];
 		$birthdate = $_POST['birthdate'];
-		$gender = $_POST['gender'];
 		$this->load->model('loginM');
-		$this->loginM->update($name,$phone,$address,$email,$password,$birthdate,$gender,$id);
+		$this->loginM->update($name,$phone,$address,$email,$password,$birthdate,$id);
  		// return redirect(base_url('/loginC/display_formdata/'));
 	}
 // public function insert_formdata()
