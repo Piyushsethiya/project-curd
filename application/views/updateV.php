@@ -134,12 +134,14 @@ button:hover {
         <label for="gender">Other</label>
     </div> -->
     <!-- </div><br><br> -->
+    <?php }; ?>
+    <div>
     
     <input class="submit"  type="submit" value="Update">
     <button class="register"><a href="<?php echo base_url('loginC/display_formdata');?>">View</a></button>
+    </div>
     
     
-    <?php }; ?>
 </form>
 </body>
 </html>
